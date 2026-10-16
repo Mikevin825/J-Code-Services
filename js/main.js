@@ -123,30 +123,4 @@
   window.addEventListener("scroll", highlightNav, { passive: true });
   highlightNav();
 
-  /* -----------------------------------------
-     CONTACT FORM
-     ----------------------------------------- */
-
-  var contactForm = document.getElementById("contact-form");
-
-  if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      var btn = contactForm.querySelector("button[type=\"submit\"]");
-      var originalText = btn.textContent;
-
-      btn.textContent = "Message Sent ✓";
-      btn.style.background = "var(--color-yellow)";
-      btn.disabled = true;
-
-      // Reset after 3 seconds
-      setTimeout(function () {
-        btn.textContent = originalText;
-        btn.style.background = "";
-        btn.disabled = false;
-        contactForm.reset();
-      }, 3000);
-    });
-  }
 })();

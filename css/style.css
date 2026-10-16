@@ -1856,6 +1856,36 @@ a {
     min-height: 120px;
 }
 
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+}
+
+.btn-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #25D366;
+    color: #fff;
+    border: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    min-height: 52px;
+    padding: 0 26px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.btn-whatsapp:hover {
+    background: #1fb857;
+    transform: translateY(-2px);
+}
+
 /* =========================================
    CONTACT RESPONSIVE
    ========================================= */
