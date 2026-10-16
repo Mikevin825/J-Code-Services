@@ -123,4 +123,53 @@
   window.addEventListener("scroll", highlightNav, { passive: true });
   highlightNav();
 
+  /* -----------------------------------------
+     CONTACT FORM VALIDATION
+     ----------------------------------------- */
+
+  var contactForm = document.getElementById("contact-form");
+
+  if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+      // Honeypot check: if filled, it's a bot — silently block
+      var honeypot = contactForm.querySelector("input[name=\"company\"]");
+      if (honeypot && honeypot.value !== "") {
+        e.preventDefault();
+        return false;
+      }
+
+      // Validate fields are not just whitespace
+      var name = contactForm.querySelector("input[name=\"name\"]");
+      var email = contactForm.querySelector("input[name=\"email\"]");
+      var message = contactForm.querySelector("textarea[name=\"message\"]");
+
+      var errors = [];
+
+      if (!name.value.trim() || name.value.trim().length < 2) {
+        errors.push("name");
+        name.style.borderColor = "#e74c3c";
+      } else {
+        name.style.borderColor = "";
+      }
+
+      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        errors.push("email");
+        email.style.borderColor = "#e74c3c";
+      } else {
+        email.style.borderColor = "";
+      }
+
+      if (!message.value.trim() || message.value.trim().length < 10) {
+        errors.push("message");
+        message.style.borderColor = "#e74c3c";
+      } else {
+        message.style.borderColor = "";
+      }
+
+      if (errors.length > 0) {
+        e.preventDefault();
+        return false;
+      }
+    });
+  }
 })();

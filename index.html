@@ -492,7 +492,13 @@
                 lead to value and impact.
               </p>
 
-              <form class="contact-form" id="contact-form" action="https://formspree.io/f/xgaordvd" method="POST">
+              <form class="contact-form" id="contact-form" action="https://formspree.io/f/xgaordvd" method="POST" novalidate>
+                <!-- Honeypot: hidden from real users, catches bots -->
+                <div class="hp-field" aria-hidden="true">
+                  <label for="company">Company</label>
+                  <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+                </div>
+
                 <div class="form-row">
                   <div class="form-group">
                     <label for="name">Your Name</label>
@@ -501,6 +507,9 @@
                       id="name"
                       name="name"
                       placeholder="John Doe"
+                      autocomplete="name"
+                      minlength="2"
+                      maxlength="100"
                       required
                     />
                   </div>
@@ -512,6 +521,8 @@
                       id="email"
                       name="email"
                       placeholder="john@example.com"
+                      autocomplete="email"
+                      maxlength="254"
                       required
                     />
                   </div>
@@ -524,6 +535,8 @@
                     name="message"
                     rows="5"
                     placeholder="Tell me about your project or idea..."
+                    minlength="10"
+                    maxlength="2000"
                     required
                   ></textarea>
                 </div>
